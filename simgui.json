@@ -1,7 +1,28 @@
 {
   "NTProvider": {
     "types": {
-      "/FMSInfo": "FMSInfo"
+      "/FMSInfo": "FMSInfo",
+      "/SmartDashboard/Field": "Field2d",
+      "/SmartDashboard/Pigeon IMU [0]": "Gyro"
+    }
+  },
+  "NetworkTables": {
+    "transitory": {
+      "PathPlanner": {
+        "HotReload": {
+          "open": true
+        },
+        "open": true
+      },
+      "Shuffleboard": {
+        "open": true
+      },
+      "SmartDashboard": {
+        "open": true,
+        "swerve": {
+          "open": true
+        }
+      }
     }
   },
   "NetworkTables Info": {

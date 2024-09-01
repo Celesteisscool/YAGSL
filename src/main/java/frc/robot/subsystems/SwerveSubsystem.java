@@ -15,19 +15,23 @@ import swervelib.parser.SwerveParser;
 
 public class SwerveSubsystem extends SubsystemBase {
   /** Creates a new SwerveSubsystem. */
+  public double maximumSpeed;
+  public File swerveJsonDirectory;
+  public SwerveDrive swerveDrive;
+  
   public SwerveSubsystem() {
-    double maximumSpeed = Units.feetToMeters(4.5);
-    File swerveJsonDirectory = new File(Filesystem.getDeployDirectory(),"swerve");
+    maximumSpeed = Units.feetToMeters(4.5);
+    swerveJsonDirectory = new File(Filesystem.getDeployDirectory(),"swerve");
     try {
-      SwerveDrive  swerveDrive = new SwerveParser(swerveJsonDirectory).createSwerveDrive(maximumSpeed);
-    } catch (IOException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
+      swerveDrive = new SwerveParser(swerveJsonDirectory).createSwerveDrive(maximumSpeed);
+    } catch (IOException e) {}
   }
 
+  
+  
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
   }
+  
 }
