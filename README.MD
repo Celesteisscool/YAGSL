@@ -1,1 +1,1 @@
-YAGSL Base for MK4's with CAN sparkmax NEO's
+YAGSL Base for MK4's with CAN sparkmax NEO's. Includes PathPlanner
