@@ -9,8 +9,9 @@ import com.pathplanner.lib.auto.AutoBuilder;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import edu.wpi.first.wpilibj2.command.button.CommandPS4Controller;
+import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
 import frc.robot.Constants;
 import swervelib.SwerveDrive;
 
@@ -52,18 +53,18 @@ public class DriveSubsystem extends SubsystemBase {
   }
   
   public ChassisSpeeds getRobotRelativeSpeeds() {
-    return swerveDrive.getFieldVelocity();
+    return swerveDrive.getRobotVelocity();
   }
 
   public void driveRobotRelative(ChassisSpeeds chassisSpeeds) {
     swerveDrive.drive(chassisSpeeds);
   }
 
-  public void driveCommand(CommandPS4Controller driverController) {
+  public void driveCommand(Joystick driverController) {
     ChassisSpeeds chassisSpeeds = new ChassisSpeeds(
-		driverController.getLeftX(), 
-		driverController.getLeftY(), 
-		driverController.getRightX());
+		driverController.getRawAxis(0), 
+		driverController.getRawAxis(1), 
+		driverController.getRawAxis(2));
 	  swerveDrive.driveFieldOriented(chassisSpeeds);
   }
 

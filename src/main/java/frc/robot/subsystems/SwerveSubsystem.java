@@ -9,6 +9,7 @@ import java.io.IOException;
 
 import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.Filesystem;
+import edu.wpi.first.wpilibj.RobotBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import swervelib.SwerveDrive;
 import swervelib.parser.SwerveParser;
@@ -24,7 +25,14 @@ public class SwerveSubsystem extends SubsystemBase {
     swerveJsonDirectory = new File(Filesystem.getDeployDirectory(),"swerve");
     try {
       swerveDrive = new SwerveParser(swerveJsonDirectory).createSwerveDrive(maximumSpeed);
-    } catch (IOException e) {}
+      if (RobotBase.isSimulation()) {
+        swerveDrive.setHeadingCorrection(false);
+        swerveDrive.setCosineCompensator(false);
+      }
+    } 
+    catch (IOException e) {
+      // This prevents compiler errors :(
+    }
   }
 
   
@@ -35,3 +43,4 @@ public class SwerveSubsystem extends SubsystemBase {
   }
   
 }
+

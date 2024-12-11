@@ -1,9 +1,34 @@
 {
+  "HALProvider": {
+    "Other Devices": {
+      "CANCoder (v6)[11]": {
+        "header": {
+          "open": true
+        }
+      },
+      "CANCoder (v6)[9]": {
+        "header": {
+          "open": true
+        }
+      },
+      "Pigeon IMU[0]": {
+        "header": {
+          "open": true
+        }
+      },
+      "SPARK MAX [7]": {
+        "header": {
+          "open": true
+        }
+      }
+    }
+  },
   "NTProvider": {
     "types": {
       "/FMSInfo": "FMSInfo",
       "/SmartDashboard/Field": "Field2d",
-      "/SmartDashboard/Pigeon IMU [0]": "Gyro"
+      "/SmartDashboard/Pigeon IMU [0]": "Gyro",
+      "/SmartDashboard/Pigeon IMU [32]": "Gyro"
     }
   },
   "NetworkTables": {
@@ -27,5 +52,8 @@
   },
   "NetworkTables Info": {
     "visible": true
+  },
+  "NetworkTables View": {
+    "visible": false
   }
 }
