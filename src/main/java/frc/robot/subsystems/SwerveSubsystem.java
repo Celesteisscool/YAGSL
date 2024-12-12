@@ -12,7 +12,6 @@ import edu.wpi.first.wpilibj.Filesystem;
 import edu.wpi.first.wpilibj.RobotBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import swervelib.SwerveDrive;
-import swervelib.simulation.SwerveModuleSimulation;
 import swervelib.parser.SwerveParser;
 
 public class SwerveSubsystem extends SubsystemBase {
