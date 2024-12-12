@@ -7,17 +7,17 @@
   "drive": {
     "type": "sparkmax",
     "id": 1,
-    "canbus": 0
+    "canbus": null
   },
   "angle": {
     "type": "sparkmax",
     "id": 2,
-    "canbus": 0
+    "canbus": null
   },
   "encoder": {
     "type": "cancoder",
     "id": 9,
-    "canbus": 0
+    "canbus": null
   },
   "inverted": {
     "drive": false,
