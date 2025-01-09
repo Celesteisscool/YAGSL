@@ -82,7 +82,8 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
-    m_robotContainer.driveCommand();
+    m_robotContainer.driveCommand().schedule();
+    CommandScheduler.getInstance().run();
   }
 
   @Override
@@ -101,5 +102,7 @@ public class Robot extends TimedRobot {
 
   /** This function is called periodically whilst in simulation. */
   @Override
-  public void simulationPeriodic() {}
+  public void simulationPeriodic() {
+    m_robotContainer.updateSim();
+  }
 }

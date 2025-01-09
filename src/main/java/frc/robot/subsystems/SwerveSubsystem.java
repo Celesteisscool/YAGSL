@@ -13,30 +13,29 @@ import edu.wpi.first.wpilibj.RobotBase;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import swervelib.SwerveDrive;
 import swervelib.parser.SwerveParser;
+import swervelib.telemetry.SwerveDriveTelemetry;
+import swervelib.telemetry.SwerveDriveTelemetry.TelemetryVerbosity;
+
 
 public class SwerveSubsystem extends SubsystemBase {
   /** Creates a new SwerveSubsystem. */
-  public double maximumSpeed;
-  public File swerveJsonDirectory;
+  public double maximumSpeed = Units.feetToMeters(4.5);
+  public File swerveJsonDirectory = new File(Filesystem.getDeployDirectory(), "swerve");
+  // public SwerveDrive swerveDrive;
   public SwerveDrive swerveDrive;
-  
-  public SwerveSubsystem() {
-    maximumSpeed = Units.feetToMeters(4.5);
-    swerveJsonDirectory = new File(Filesystem.getDeployDirectory(),"swerve");
 
+  public SwerveSubsystem() {
     try {
       swerveDrive = new SwerveParser(swerveJsonDirectory).createSwerveDrive(maximumSpeed);
       if (RobotBase.isSimulation()) {
         swerveDrive.setHeadingCorrection(false);
         swerveDrive.setCosineCompensator(false);
       }
-    } 
-    catch (IOException e) {
-      // This prevents compiler errors :(
+      SwerveDriveTelemetry.verbosity = TelemetryVerbosity.HIGH;
     }
+    catch (IOException e) {} // This prevents compiler errors :(
   }
 
-  
   
   @Override
   public void periodic() {
